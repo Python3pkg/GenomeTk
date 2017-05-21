@@ -88,7 +88,7 @@ class GenericFeatureParser():
         # safe way to calculate coding bases as it accounts
         # for the potential of overlapping genes
         coding_mask = np_zeros(self.last_coding_base[seq_id])
-        for pos in self.genes[seq_id].values():
+        for pos in list(self.genes[seq_id].values()):
             coding_mask[pos[0]:pos[1] + 1] = 1
 
         return coding_mask
@@ -148,7 +148,7 @@ class MetadataGenes():
 
         # calculate nucleotide statistics
         scaffolds = seq_io.read(genome_file)
-        genome_size = sum([len(x) for x in scaffolds.values()])
+        genome_size = sum([len(x) for x in list(scaffolds.values())])
 
         gene_stats = {}
         gene_desc = {}

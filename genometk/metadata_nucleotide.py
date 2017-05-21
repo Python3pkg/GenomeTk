@@ -59,7 +59,7 @@ class MetadataNucleotide():
         nuc_desc['gc_count'] = "Number of G or C bases in genome."
         nuc_stats['gc_percentage'] = genome_tk.gc(scaffolds) * 100.0
         nuc_desc['gc_percentage'] = "GC content of genome."
-        nuc_stats['genome_size'] = sum([len(x) for x in scaffolds.values()])
+        nuc_stats['genome_size'] = sum([len(x) for x in list(scaffolds.values())])
         nuc_desc['genome_size'] = "Total base pairs in genome including nucleotide bases, ambiguous bases, and gaps."
         nuc_stats['n50_scaffolds'] = seq_tk.N50(scaffolds)
         nuc_desc['n50_scaffolds'] = "Scaffold length at which 50% of total bases in assembly are in scaffolds of that length or greater."
